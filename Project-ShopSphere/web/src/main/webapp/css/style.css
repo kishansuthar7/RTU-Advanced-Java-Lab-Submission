@@ -1,0 +1,532 @@
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap');
+
+/* =========================
+   1. Theme and Global Styles
+   ========================= */
+
+:root {
+    --ink: #17211e;
+    --muted: #6b7772;
+    --paper: #f7f8f5;
+    --accent: #d5f36a;
+    --accent-dark: #9abb36;
+    --line: #e7eae5;
+    --white: #ffffff;
+    --radius: 16px;
+    --shadow: 0 4px 18px #17211e08;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    width: 100%;
+    min-height: 100%;
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    width: 100%;
+    min-height: 100vh;
+    overflow-x: hidden;
+    font-family: 'DM Sans', sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.6;
+}
+
+img {
+    max-width: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+.navbar-brand {
+    font-family: 'Manrope', sans-serif;
+    letter-spacing: -0.035em;
+}
+
+a {
+    color: inherit;
+}
+
+button,
+input,
+select,
+textarea {
+    font: inherit;
+}
+
+/* =========================
+   2. Navigation
+   ========================= */
+
+.shop-nav {
+    background: var(--ink);
+    padding: 16px 0;
+}
+
+.navbar-brand {
+    font-size: 1.45rem;
+    font-weight: 800;
+    white-space: nowrap;
+}
+
+.brand-dot,
+.accent {
+    color: var(--accent-dark);
+}
+
+.shop-nav .nav-link {
+    color: #e8ece7;
+    transition: color 0.2s ease;
+}
+
+.shop-nav .nav-link:hover,
+.shop-nav .nav-link:focus {
+    color: var(--accent);
+}
+
+.search-form {
+    width: min(100%, 430px);
+    min-width: 0;
+}
+
+.search-form .form-control {
+    min-width: 0;
+    border: 0;
+    border-radius: 9px 0 0 9px;
+    padding: 11px 15px;
+}
+
+.search-form .btn {
+    flex-shrink: 0;
+    border-radius: 0 9px 9px 0;
+}
+
+/* =========================
+   3. Hero Section
+   ========================= */
+
+.hero {
+    position: relative;
+    background: #edf1e5;
+    border-radius: 22px;
+    overflow: hidden;
+    min-height: 330px;
+}
+
+.eyebrow {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    color: #6e7f3d;
+    text-transform: uppercase;
+}
+
+.hero-art {
+    height: 250px;
+    position: relative;
+    display: grid;
+    place-items: center;
+}
+
+.hero-circle {
+    height: 230px;
+    width: 230px;
+    max-width: 80%;
+    border-radius: 50%;
+    background: var(--accent);
+    position: absolute;
+    right: 20px;
+    top: 10px;
+}
+
+.hero-card {
+    position: relative;
+    width: 160px;
+    max-width: 70%;
+    height: 185px;
+    background: var(--white);
+    border-radius: 20px;
+    box-shadow: 0 25px 60px #17211e22;
+    transform: rotate(8deg);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 3.2rem;
+}
+
+.hero-card small {
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-align: center;
+    line-height: 1.5;
+}
+
+/* =========================
+   4. Product Cards
+   ========================= */
+
+.product-card,
+.panel {
+    min-width: 0;
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+}
+
+.product-card {
+    height: 100%;
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 14px 30px #17211e12;
+}
+
+/* Fixed product image container */
+.product-image {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 225px;
+    min-width: 0;
+    overflow: hidden;
+    flex-shrink: 0;
+    background: #f0f2ed;
+}
+
+/* Keep every product image inside its container */
+.product-image img {
+    display: block;
+    width: 100% !important;
+    height: 100% !important;
+    max-width: 100% !important;
+    max-height: 100% !important;
+    object-fit: contain;
+    padding: 12px;
+    flex-shrink: 0;
+}
+
+.image-fallback {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    place-items: center;
+    background: linear-gradient(135deg, #e6eadf, #f6f7f3);
+    font-size: 4rem;
+    color: var(--accent-dark);
+}
+
+.discount-pill {
+    position: absolute;
+    top: 13px;
+    left: 13px;
+    z-index: 1;
+    background: var(--accent);
+    padding: 6px 10px;
+    border-radius: 20px;
+    font-size: 0.7rem;
+    font-weight: 800;
+}
+
+.product-desc {
+    min-height: 40px;
+    color: var(--muted);
+    overflow-wrap: anywhere;
+}
+
+.price {
+    font-size: 1.25rem;
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    color: var(--ink);
+}
+
+/* =========================
+   5. Buttons
+   ========================= */
+
+.btn {
+    border-radius: 9px;
+    font-weight: 600;
+    padding: 0.65rem 1rem;
+    transition:
+        background-color 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.btn-dark {
+    background: var(--ink);
+    border-color: var(--ink);
+}
+
+.btn-dark:hover,
+.btn-dark:focus-visible {
+    background: #34453d;
+    border-color: #34453d;
+}
+
+.btn-accent {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: var(--ink);
+}
+
+.btn-accent:hover,
+.btn-accent:focus-visible {
+    background: #c6e653;
+    border-color: #c6e653;
+    color: var(--ink);
+}
+
+/* =========================
+   6. Forms and Authentication
+   ========================= */
+
+.auth-wrap {
+    min-height: 68vh;
+    display: grid;
+    place-items: center;
+    padding: 35px 0;
+}
+
+.auth-card {
+    width: min(100%, 470px);
+    min-width: 0;
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    padding: clamp(24px, 5vw, 42px);
+    box-shadow: 0 15px 45px #17211e0d;
+}
+
+.form-control,
+.form-select {
+    min-width: 0;
+    border-color: #dfe4dc;
+    border-radius: 9px;
+    padding: 0.75rem 0.9rem;
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: var(--accent-dark);
+    box-shadow: 0 0 0 0.2rem #d5f36a55;
+}
+
+.form-label {
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+/* =========================
+   7. Empty State and Cart
+   ========================= */
+
+.empty-state {
+    text-align: center;
+    padding: 70px 20px;
+    background: var(--white);
+    border: 1px dashed #d5dbd1;
+    border-radius: var(--radius);
+}
+
+.cart-line {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 18px 0;
+    border-bottom: 1px solid var(--line);
+    min-width: 0;
+}
+
+.cart-line:last-child {
+    border-bottom: 0;
+}
+
+.cart-line > * {
+    min-width: 0;
+}
+
+.cart-line img {
+    width: 76px;
+    height: 76px;
+    flex-shrink: 0;
+    object-fit: contain;
+    border-radius: 10px;
+    background: #f0f2ed;
+}
+
+/* =========================
+   8. Statistics and Tables
+   ========================= */
+
+.stat-card {
+    background: #edf1e5;
+    border-radius: 15px;
+    padding: 22px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    min-width: 0;
+}
+
+.stat-card span {
+    color: var(--muted);
+    font-weight: 600;
+}
+
+.stat-card strong {
+    font: 800 2rem 'Manrope', sans-serif;
+    letter-spacing: -0.05em;
+    overflow-wrap: anywhere;
+}
+
+.table {
+    max-width: 100%;
+}
+
+.table > :not(caption) > * > * {
+    padding: 13px 9px;
+}
+
+/* =========================
+   9. Footer
+   ========================= */
+
+.footer {
+    border-top: 1px solid var(--line);
+    color: var(--muted);
+    font-size: 0.85rem;
+}
+
+/* =========================
+   10. Responsive Layout
+   ========================= */
+
+@media (max-width: 991.98px) {
+    .search-form {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .hero-circle {
+        right: 50%;
+        transform: translateX(50%);
+    }
+}
+
+@media (max-width: 767.98px) {
+    .shop-nav {
+        padding: 12px 0;
+    }
+
+    .hero {
+        min-height: auto;
+        border-radius: 18px;
+    }
+
+    .hero-art {
+        height: 220px;
+    }
+
+    .hero-circle {
+        width: 190px;
+        height: 190px;
+    }
+
+    .product-image {
+        height: 210px;
+    }
+
+    .auth-wrap {
+        min-height: auto;
+    }
+
+    .stat-card {
+        padding: 18px;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .hero {
+        border-radius: 15px;
+    }
+
+    .hero-art {
+        height: 195px;
+    }
+
+    .hero-card {
+        height: 155px;
+        width: 140px;
+        font-size: 2.7rem;
+    }
+
+    .product-image {
+        height: 180px;
+    }
+
+    .product-image img {
+        padding: 8px;
+    }
+
+    .cart-line {
+        flex-wrap: wrap;
+    }
+
+    .cart-line form {
+        margin-left: auto;
+    }
+
+    .auth-card {
+        border-radius: 15px;
+    }
+}
+
+/* =========================
+   11. Overflow Protection
+   ========================= */
+
+.container,
+.container-fluid,
+.row,
+[class*="col-"] {
+    min-width: 0;
+}
+
+pre,
+code {
+    overflow-wrap: anywhere;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+    }
+}
